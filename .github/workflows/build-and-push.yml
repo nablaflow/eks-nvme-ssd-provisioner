@@ -46,7 +46,7 @@ jobs:
           push: true
           tags: |
             ${{ steps.login-ecr-staging.outputs.registry }}/${{ env.IMAGE_NAME }}:latest
-          cache-from: type=registry,ref=${{ steps.login-ecr-staging.outputs.registry }}/${{ env.IMAGE_NAME }}:latest-staging
+          cache-from: type=registry,ref=${{ steps.login-ecr-staging.outputs.registry }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
 
       - name: Configure AWS credentials (production)
@@ -68,5 +68,5 @@ jobs:
           push: true
           tags: |
             ${{ steps.login-ecr-production.outputs.registry }}/${{ env.IMAGE_NAME }}:latest
-          cache-from: type=registry,ref=${{ steps.login-ecr-production.outputs.registry }}/${{ env.IMAGE_NAME }}:latest-staging
+          cache-from: type=registry,ref=${{ steps.login-ecr-production.outputs.registry }}/${{ env.IMAGE_NAME }}:latest
           cache-to: type=inline
